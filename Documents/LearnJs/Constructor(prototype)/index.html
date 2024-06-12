@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя гаражная страница</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Add Car:</h1>
+        <div class="input-group">
+            <label for="makeInput">Make:</label>
+            <input type="text" id="makeInput">
+        </div>
+        <div class="input-group">
+            <label for="modelInput">Model:</label>
+            <input type="text" id="modelInput">
+        </div>
+        <div class="input-group">
+            <label for="yearInput">Year:</label>
+            <input type="number" id="yearInput">
+        </div>
+        <div class="input-group">
+            <label for="colorInput">Color:</label>
+            <input type="text" id="colorInput">
+        </div>
+        <div class="input-group">
+            <label for="priceInput">Price:</label>
+            <input type="number" id="priceInput">
+        </div>
+        <button onclick="addCarToGarage()">Add car!</button>
+        <h2>Your Cars:</h2>
+        <ul id="carList" class="car-list">
+            
+        </ul>
+    </div>
+    <script src="js/script.js"></script> 
+</body>
+</html>
