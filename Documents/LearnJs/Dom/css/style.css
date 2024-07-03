@@ -16,9 +16,9 @@ body {
   margin-bottom: 20px;
 }
 
-#shapeSelect,
-#colorPicker,
-#applyColorButton {
+.shape-container select,
+.shape-container input[type="color"],
+.shape-container button {
   margin: 5px;
   padding: 10px;
   border-radius: 5px;
@@ -26,21 +26,22 @@ body {
   font-size: 16px;
 }
 
-#applyColorButton {
+.applyColorButton {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
 }
 
-#applyColorButton:hover {
+.applyColorButton:hover {
   background-color: #45a049;
 }
 
-#shape {
+.shape {
   width: 100px;
   height: 100px;
   background-color: #000;
   margin-top: 20px;
+  border-radius: 50%;
 }
 
 .circle {
@@ -57,7 +58,7 @@ body {
   border-radius: 0;
 }
 
-#btn123 {
+.pass {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #007bff;
@@ -67,16 +68,16 @@ body {
   cursor: pointer;
 }
 
-#btn123:hover {
+.pass:hover {
   background-color: #0056b3;
 }
 
-#list-container ul {
+.list-container ul {
   list-style-type: none;
   padding: 0;
 }
 
-#list-container li {
+.list-container li {
   background-color: #fff;
   margin: 5px 0;
   padding: 10px;
@@ -88,7 +89,7 @@ body {
   margin: 20px;
 }
 
-#todoInput {
+.todoInput {
   width: 200px;
   padding: 10px;
   margin-right: 10px;
@@ -97,7 +98,7 @@ body {
   font-size: 16px;
 }
 
-#addButton {
+.addButton {
   padding: 10px 20px;
   background-color: #28a745;
   color: white;
@@ -106,17 +107,17 @@ body {
   cursor: pointer;
 }
 
-#addButton:hover {
+.addButton:hover {
   background-color: #218838;
 }
 
-#todoList {
+.todoList {
   list-style-type: none;
   padding: 0;
   margin-top: 20px;
 }
 
-#todoList li {
+.todoList li {
   background-color: #fff;
   margin: 5px 0;
   padding: 10px;
@@ -127,7 +128,7 @@ body {
   align-items: center;
 }
 
-#todoList li button {
+.todoList li button {
   background-color: #dc3545;
   color: white;
   border: none;
@@ -146,31 +147,6 @@ body {
   margin-left: 10px;
 }
 
-#todoList li button:hover {
+.todoList li button:hover {
   background-color: #c82333;
-}
-
-#shape {
-  width: 100px;
-  height: 100px;
-  background-color: black;
-  border-radius: 50%;
-}
-
-#shape.square {
-  width: 100px;
-  height: 100px;
-  border-radius: 0;
-}
-
-#shape.rectangle {
-  width: 150px;
-  height: 100px;
-  border-radius: 0;
-}
-
-#shape.circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
 }

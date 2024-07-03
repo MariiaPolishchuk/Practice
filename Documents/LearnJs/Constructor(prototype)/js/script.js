@@ -1,4 +1,4 @@
-//1
+// //1
 function Car(make, model, year, color, price) {
     this.make = make;
     this.model = model;
@@ -9,40 +9,41 @@ function Car(make, model, year, color, price) {
 
 function Garage() {
     this.cars = [];
-}
+    this.addCar = function (make, model, year, color, price) {
+        const newCar = new Car(make, model, year, color, price);
+        this.cars.push(newCar);
+        return "New car was added: " + make + " " + model;
+    }
 
-Garage.prototype.addCar = function (make, model, year, color, price) {
-    const newCar = new Car(make, model, year, color, price);
-    this.cars.push(newCar);
-    return "New car was added: " + make + " " + model;
+    this.addCarFromInput = function () {
+        const make = document.getElementById("makeInput").value;
+        const model = document.getElementById("modelInput").value;
+        const year = parseInt(document.getElementById("yearInput").value);
+        const color = document.getElementById("colorInput").value;
+        const price = parseFloat(document.getElementById("priceInput").value);
+
+        const message = this.addCar(make, model, year, color, price);
+        document.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => input.value = '');
+        displayCars();
+
+        return message;
+    }
 }
 
 const myGarage = new Garage();
 
-
-function addCarToGarage() {
-    const make = document.getElementById("makeInput").value;
-    const model = document.getElementById("modelInput").value;
-    const year = parseInt(document.getElementById("yearInput").value);
-    const color = document.getElementById("colorInput").value;
-    const price = parseFloat(document.getElementById("priceInput").value);
-    myGarage.addCar(make, model, year, color, price);
-    document.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => input.value = '');
-    displayCars();
-}
-
 function displayCars() {
     const carList = document.getElementById("carList");
     carList.innerHTML = "";
+
     myGarage.cars.forEach(function (car, index) {
         const listItem = document.createElement("li");
-        listItem.classList.add('car-item')
-        listItem.textContent = car.make + " " + car.model + " (" + car.year + ")" + car.color + car.price;
+        listItem.classList.add('car-item');
+        listItem.textContent = car.make + " " + car.model + " (" + car.year + "), Color: " + car.color + ", Price: $" + car.price.toFixed(2);
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete car";
         deleteButton.classList.add("delete-button");
-
 
         deleteButton.addEventListener("click", function () {
             myGarage.cars.splice(index, 1);
@@ -50,11 +51,9 @@ function displayCars() {
         });
 
         listItem.appendChild(deleteButton);
-
         carList.appendChild(listItem);
     });
 }
-
 
 displayCars();
 

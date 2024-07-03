@@ -1,61 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // выбор и изменение фигуры
-    document.getElementById('shapeSelect').addEventListener('change', function () {
-        const shapeType = this.value;
-        const shape = document.getElementById('shape');
-        shape.className = shapeType;
-    })
+    // Shape selection and modification
+    const shapeSelect = document.querySelector('.shapeSelect');
+    const shapeElement = document.querySelector('.shape');
 
-    document.getElementById('applyColorButton').addEventListener('click', applyColor);
-
-    function applyColor() {
-        const colorInput = document.getElementById('colorPicker');
-        const color = colorInput.value || '#000000';
-        const shape = document.getElementById('shape');
-        shape.style.backgroundColor = color;
-    }
-
-    // добавления элемента в список
-    const btn123 = document.getElementById('btn123');
-    const listContainer = document.getElementById('list-container');
-    const ulElement = document.createElement('ul');
-
-    btn123.addEventListener('click', () => {
-        const liElement = document.createElement('li');
-        liElement.textContent = 'Привет';
-
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Удалить';
-        deleteButton.classList.add('delete-button');
-        deleteButton.addEventListener('click', () => {
-            ulElement.removeChild(liElement);
-        });
-
-        liElement.appendChild(deleteButton);
-        ulElement.appendChild(liElement);
-        listContainer.appendChild(ulElement);
+    shapeSelect.addEventListener('change', function () {
+        const selectedShape = this.value;
+        shapeElement.className = 'shape ' + selectedShape;
     });
 
-    // TODO 
-    const todoInput = document.getElementById('todoInput');
-    const addButton = document.getElementById('addButton');
-    const todoList = document.getElementById('todoList');
+    // Apply color to shape
+    const applyColorButton = document.querySelector('.applyColorButton');
+    const colorPickerInput = document.querySelector('.colorPickerInput');
 
-    addButton.addEventListener('click', () => {
-        const todoText = todoInput.value;
-        if (todoText.trim() === '') return;
+    applyColorButton.addEventListener('click', () => {
+        const selectedColor = colorPickerInput.value || '#000000';
+        shapeElement.style.backgroundColor = selectedColor;
+    });
 
-        const liElement = document.createElement('li');
-        liElement.textContent = todoText;
+    // Function to add item to a list
+    function addItemToList(container, text) {
+        const listItem = document.createElement('li');
+        listItem.textContent = text;
 
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Удалить';
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', () => {
-            todoList.removeChild(liElement);
+            container.removeChild(listItem);
         });
 
-        liElement.appendChild(deleteButton);
-        todoList.appendChild(liElement);
+        listItem.appendChild(deleteButton);
+        container.appendChild(listItem);
+    }
+
+    // Adding item to the general list
+    const addGeneralItemButton = document.querySelector('.addGeneralItemButton');
+    const generalList = document.querySelector('.generalList');
+
+    addGeneralItemButton.addEventListener('click', () => {
+        addItemToList(generalList, 'Привет');
+    });
+
+    // Adding item to the todo list
+    const addTodoButton = document.querySelector('.addTodoButton');
+    const todoList = document.querySelector('.todoList');
+    const todoInput = document.querySelector('.todoInput');
+
+    addTodoButton.addEventListener('click', () => {
+        const todoText = todoInput.value.trim();
+        if (todoText === '') return;
+
+        addItemToList(todoList, todoText);
         todoInput.value = '';
     });
 });
+
+

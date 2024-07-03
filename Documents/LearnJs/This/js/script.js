@@ -61,3 +61,38 @@ console.log(calculator.sum(1)(2));
 console.log(calculator.multiply(3)(4));  
 console.log(calculator.subtract(10)(5)); 
 console.log(calculator.divide(20)(4)); 
+
+
+//realization via prototype
+
+function newCalculator() {}
+
+newCalculator.prototype.sum = function(a) {
+    return function(b) {
+        return a + b;
+    };
+};
+
+newCalculator.prototype.multiply = function(a) {
+    return function(b) {
+        return a * b;
+    };
+};
+
+newCalculator.prototype.subtract = function(a) {
+    return function(b) {
+        return a - b;
+    };
+};
+
+newCalculator.prototype.divide = function(a) {
+    return function(b) {
+        return a / b;
+    };
+};
+
+let calculator1 = new newCalculator();
+console.log(calculator1.sum(1)(2));       // Output: 3
+console.log(calculator1.multiply(3)(4));  // Output: 12
+console.log(calculator.subtract(10)(5)); // Output: 5
+console.log(calculator.divide(20)(4));   // Output: 5

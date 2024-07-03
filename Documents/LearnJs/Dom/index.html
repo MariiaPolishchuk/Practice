@@ -10,25 +10,26 @@
 
 <body>
     <div class="shape-container">
-        <select id="shapeSelect">
+        <select class="shapeSelect">
             <option value="circle">Круг</option>
             <option value="square">Квадрат</option>
             <option value="rectangle">Прямоугольник</option>
         </select>
-        <input type="color" id="colorPicker" value="#000000">
-        <button id="applyColorButton">Применить цвет</button>
-        <div id="shape"></div>
+        <input type="color" class="colorPickerInput" value="#000000">
+        <button class="applyColorButton">Применить цвет</button>
+        <div class="shape"></div>
     </div>
-    <ul></ul>
 
-    <button id="btn123" class="pass">Click me</button>
-    <div id="list-container"></div>
+    <button class="addGeneralItemButton pass">Click me</button>
+    <ul class="generalList"></ul>
+    <div class="generalListContainer"></div>
 
     <div class="to-do">
-        <input type="text" id="todoInput" placeholder="Введите дело">
-        <button id="addButton">Добавить</button>
-        <ul id="todoList"></ul>
+        <input type="text" class="todoInput" placeholder="Введите дело">
+        <button class="addTodoButton">Добавить</button>
+        <ul class="todoList"></ul>
     </div>
+
     <script src="js/script.js"></script>
 </body>
 

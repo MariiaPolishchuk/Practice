@@ -14,7 +14,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.main-text{
     text-align: center;
     margin-bottom: 20px;
 }
@@ -35,7 +35,7 @@ h1 {
     border-radius: 4px;
 }
 
-button {
+.btn {
     display: block;
     padding: 10px;
     background-color: #007bff;
@@ -46,7 +46,7 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.btn:hover {
     background-color: #007bffdf;
 }
 

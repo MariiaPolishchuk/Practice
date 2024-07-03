@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hamburger Builder</title>
+</head>
+
+<body>
+    <h2>Build Your Hamburger</h2>
+
+    <label for="size">Select Size:</label>
+    <select id="size">
+        <option value="small">Small - 50 Tenge, 20 Calories</option>
+        <option value="medium">Medium - 75 Tenge, 30 Calories</option>
+        <option value="large">Large - 100 Tenge, 40 Calories</option>
+    </select>
+
+    <div class="button-container">
+        <button id="cheese">Add Cheese (+ 10 Tenge, + 20 Calories)</button>
+        <button id="salad">Add Salad (+ 20 Tenge, + 5 Calories)</button>
+        <button id="potato">Add Potato (+ 15 Tenge, + 10 Calories)</button>
+        <button id="spice">Add Spice (+ 15 Tenge, 0 Calories)</button>
+        <button id="mayo">Add Mayo (+ 20 Tenge, + 5 Calories)</button>
+    </div>
+    <button class="btn" id="sendButton">Build Hamburger</button>
+    <div id="res"></div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
