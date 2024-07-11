@@ -184,7 +184,7 @@ document.getElementById('sendButton').addEventListener('click', function () {
 
 function createReusableCounter() {
     const a = 10
-    return function(a, b, myFunc) {
+    return function (a, b, myFunc) {
         return myFunc(a, b);
     };
 }
@@ -195,4 +195,47 @@ function multiply(a, b) {
 
 const counter = createReusableCounter();
 const multiplyRes = counter(2, 8, multiply);
-console.log(multiplyRes); 
+console.log(multiplyRes);
+
+
+//
+
+function greet(name) {
+    console.log('Hello, ' + name)
+}
+
+function processUserInput(callback) {
+    const name = prompt('Enter your name')
+    callback(name)
+}
+
+processUserInput(greet)
+
+
+//
+
+function isEven(num) {
+    return num % 2 === 0;
+}
+
+function isGreaterThanFive(num) {
+    return num > 5;
+}
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function filterArray(arr, callback) {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i])) {
+            result.push(arr[i])
+        }
+    }
+    return result
+}
+
+const evenNumbers = filterArray(numbers, isEven);
+console.log(evenNumbers); 
+
+const numbersGreaterThanFive = filterArray(numbers, isGreaterThanFive);
+console.log(numbersGreaterThanFive); 
